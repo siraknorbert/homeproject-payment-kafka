@@ -3,11 +3,11 @@
 ---
 
 ## How to run and use
-- Run `docker-compose -f docker-compose.yml up -d` in the root directory of the project. This will set up all necessary services: Postgres db, Zookeeper, Kafka, Spring app.
+- Run `docker compose -f docker-compose.yml up -d` in the root directory of the project. This will set up all necessary services: Postgres db, Zookeeper, Kafka, Spring app.
   - Please keep in mind that despite I configured dependency containers for each container, there can still be connection errors between them when setting up the app. In that case, a simple manual restart of the created container should solve the issue.
 - Also, versioned database scripts found in `resources/db/migration/` will be run against Postgres db to create the entities used in the processes during the setup process.
 - After that, on http://localhost:8080/swagger-ui/index.html# (port is 8081 if you run the app locally outside of docker), you can call the payment transfer endpoint manually for testing.
-- For testing via swagger calls, you can use the data of the dummy entities inserted in: `resources/db/migration/V3__bank_account_dummy_dml.sql`
+- For testing via Swagger UI calls, you can use the data of the dummy entities inserted in: `resources/db/migration/V3__bank_account_dummy_dml.sql`
 - If you want to receive email notification about the result of the money transfer:
   - Upload your mail receiver email address to the receiver bank_account.owner_email in the database.
   - Fill in the following sender gmail credentials in `resources/application.yml` (please keep in mind for this to work, you need to enable specific related settings in your gmail account):
@@ -18,7 +18,7 @@
 
 ## For this project
 - I used **Spring Boot** with **Maven** and **Java 21**.
-- Did not implement a UI, but added **Swagger docs** to easily call the API for manual testing.
+- Did not implement a UI, but added **Openapi documentation** to easily call the API via Swagger UI for manual testing.
 - **Containerized** the separate services of the app using **Docker**.
 
 ---
@@ -47,7 +47,7 @@
 - Messages that could not be handled by the consumer after a given number of retries are moved to a dead letter topic where they are handled accordingly.
 
 ### Documentation
-- Documented the **REST API** using **Swagger**.
+- Documented the **REST API** using **Openapi**, **Swagger**.
 
 ### Tests
 - **I had no time for this part**, but the planned approach:

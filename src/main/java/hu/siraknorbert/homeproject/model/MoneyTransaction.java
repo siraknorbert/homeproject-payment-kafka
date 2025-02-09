@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
 @Entity
+@Inheritance
 @Table(name = "money_transaction")
 public class MoneyTransaction extends BaseEntity {
 

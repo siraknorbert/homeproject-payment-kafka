@@ -1,5 +1,5 @@
 # run the command below to create all the containers:
-# docker-compose -f docker-compose.yml up -d
+# docker compose -f docker-compose.yml up -d
 
 version: '3.8'
 

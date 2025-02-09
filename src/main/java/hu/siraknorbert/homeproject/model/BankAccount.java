@@ -2,11 +2,13 @@ package hu.siraknorbert.homeproject.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
 import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 
 @Entity
+@Inheritance
 @Table(name = "bank_account")
 public class BankAccount extends BaseEntity {
 
