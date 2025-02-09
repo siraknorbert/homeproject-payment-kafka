@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: homeproject
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres-db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9093
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: <your_mail>
+    password: <your_pw>
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
