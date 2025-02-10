@@ -7,6 +7,7 @@ CREATE TABLE money_transaction
     status       VARCHAR(20)              NOT NULL CHECK (status IN ('PENDING', 'FAILED', 'SUCCEEDED')),
     initiated_at TIMESTAMP WITH TIME ZONE NOT NULL,
     finished_at  TIMESTAMP WITH TIME ZONE,
+    version      INTEGER DEFAULT 0        NOT NULL,
     CONSTRAINT fk_sender_bank_account FOREIGN KEY (sender_id) REFERENCES bank_account (id),
     CONSTRAINT fk_receiver_bank_account FOREIGN KEY (receiver_id) REFERENCES bank_account (id)
 );
